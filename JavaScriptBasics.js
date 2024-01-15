@@ -66,6 +66,22 @@ multiple Line comment */
 //     x--;
 // }
 
-do{
-    console.log("samad");
-}while(false)
+// do{
+//     console.log("samad");
+// }while(false)
+
+// JavaScript Function
+
+function Message(){
+    console.log("Hello This is Message method")
+}
+Message();
+
+function table (a){
+    sum = 0;
+    for(i = 1 ; i<=10;i++){
+        console.log(i , "*" , a , " = " + i*a);
+    }
+   
+}
+table(4);
