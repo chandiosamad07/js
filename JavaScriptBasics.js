@@ -23,7 +23,10 @@ let a = 5;
 // console.log(x);
 // console.log(y);
 
+console.log(a)
 function Check(){
+    a=10;
    return a;
 }
+console.log(a)
 console.log(Check())
