@@ -18,8 +18,12 @@ var y = "A";
 var y = "B";
 const check = 5;
 let a = 5;
-a = "samad";
-console.log(check);
-console.log(a);
-console.log(x);
-console.log(y);
+// console.log(check);
+// console.log(a);
+// console.log(x);
+// console.log(y);
+
+function Check(){
+   return a;
+}
+console.log(Check())
