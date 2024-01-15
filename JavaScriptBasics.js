@@ -33,7 +33,24 @@ multiple Line comment */
 
 //Javascript Data Types
 
-var a = 40 // number 
-var b = "string" //string
-console.log(typeof(a));
-console.log(typeof(b));
+// var a = 40 // number 
+// var b = "string" //string
+// let c = "10";
+
+// console.log(typeof(a));
+// console.log(typeof(b));
+// console.log(typeof(+c));
+// console.log((+c)+5);
+
+//JavaScript Operators
+
+console.log(10+20);
+console.log(10-20);
+console.log(10/20);
+console.log(10*20);
+console.log(10==20);
+console.log(10>20);
+console.log(10>=20);
+console.log(10<=20);
+console.log(10<20);
+console.log(10==10 && true );
