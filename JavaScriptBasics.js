@@ -44,13 +44,28 @@ multiple Line comment */
 
 //JavaScript Operators
 
-console.log(10+20);
-console.log(10-20);
-console.log(10/20);
-console.log(10*20);
-console.log(10==20);
-console.log(10>20);
-console.log(10>=20);
-console.log(10<=20);
-console.log(10<20);
-console.log(10==10 && true );
+// console.log(10+20);
+// console.log(10-20);
+// console.log(10/20);
+// console.log(10*20);
+// console.log(10==20);
+// console.log(10>20);
+// console.log(10>=20);
+// console.log(10<=20);
+// console.log(10<20);
+// console.log(10==10 && true );
+
+//LOOPS
+
+// for(i = 5 ; i>0 ; i--){
+//     console.log(i)
+// }
+// let x = 5 ;
+// while(x>0){
+//     console.log(x)
+//     x--;
+// }
+
+do{
+    console.log("samad");
+}while(false)
