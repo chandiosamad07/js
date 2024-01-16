@@ -197,7 +197,10 @@ multiple Line comment */
 // //   }
 // console.log(ageResult)
 
-// const number  = [1,2,4,5,6,7,8,9]
+const number  = [1,2,4,5,6,7,8,9]
 
 // const result = number.find(num => num>4);
+// console.log(result)
+
+// const result = number.findIndex(num => num > 8)
 // console.log(result)
