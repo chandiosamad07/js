@@ -196,3 +196,8 @@ multiple Line comment */
 // //     return age >= 18;
 // //   }
 // console.log(ageResult)
+
+// const number  = [1,2,4,5,6,7,8,9]
+
+// const result = number.find(num => num>4);
+// console.log(result)
