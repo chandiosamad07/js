@@ -96,8 +96,23 @@ multiple Line comment */
 
 //for In
 
-const obj = {a:1 ,b:2, c:3};
+// const obj = {a:1 ,b:2, c:3};
 
-for(const value in obj){
-    console.log(value , obj[value]);
-}
+// for(const value in obj){
+//     console.log(value , obj[value]);
+// }
+
+
+//scop
+// let x = 10;
+// {
+//     let x = "a";
+//     console.log(x);
+// }
+
+// function myfun(){
+//     let x =5;
+//     console.log(x);
+// }
+// myfun()
+// console.log(x)
