@@ -204,3 +204,12 @@ const number  = [1,2,4,5,6,7,8,9]
 
 // const result = number.findIndex(num => num > 8)
 // console.log(result)
+
+
+const sum =number.reduce(function(acc , cur){
+return acc + cur;
+},0)
+
+console.log(sum)
+
+
