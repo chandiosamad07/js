@@ -173,3 +173,11 @@ multiple Line comment */
 const number  = [4,9,16,25,36,49]
 const result = number.map(Math.sqrt)
 console.log(result);
+
+const Saqure = number.map(num => num *num);
+console.log(Saqure)
+
+const SaquredNumber = number.map(function (num){
+    return num * num;
+});
+console.log(SaquredNumber)
