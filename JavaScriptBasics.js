@@ -116,3 +116,15 @@ multiple Line comment */
 // }
 // myfun()
 // console.log(x)
+
+//Arrow funcation
+
+let myfun = (a,b) => a*b;
+
+console.log(myfun(5,2))
+
+hello = () =>{
+    return "hello world"
+}
+
+console.log(hello())
