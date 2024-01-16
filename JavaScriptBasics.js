@@ -158,14 +158,18 @@ multiple Line comment */
 
 //Iterators
 
-let sum =0;
+// let sum =0;
 
-const number = [2,3,4,5,6,7,8];
+// const number = [2,3,4,5,6,7,8];
 
-number.forEach(myfunction)
+// number.forEach(myfunction)
 
-function myfunction (item){
-   sum= sum + item
-}
+// function myfunction (item){
+//    sum= sum + item
+// }
 
-console.log(sum)
+// console.log(sum)
+
+const number  = [4,9,16,25,36,49]
+const result = number.map(Math.sqrt)
+console.log(result);
