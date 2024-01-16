@@ -72,16 +72,24 @@ multiple Line comment */
 
 // JavaScript Function
 
-function Message(){
-    console.log("Hello This is Message method")
-}
-Message();
+// function Message(){
+//     console.log("Hello This is Message method")
+// }
+// Message();
 
-function table (a){
-    sum = 0;
-    for(i = 1 ; i<=10;i++){
-        console.log(i , "*" , a , " = " + i*a);
-    }
+// function table (a){
+//     sum = 0;
+//     for(i = 1 ; i<=10;i++){
+//         console.log(i , "*" , a , " = " + i*a);
+//     }
    
+// }
+// table(4);
+
+//for of
+
+const array = [1,2,3,4,5]
+
+for(const value of array){
+    console.log(value);
 }
-table(4);
