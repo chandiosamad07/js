@@ -170,14 +170,29 @@ multiple Line comment */
 
 // console.log(sum)
 
-const number  = [4,9,16,25,36,49]
-const result = number.map(Math.sqrt)
-console.log(result);
+// const number  = [4,9,16,25,36,49]
+// const result = number.map(Math.sqrt)
+// console.log(result);
 
-const Saqure = number.map(num => num *num);
-console.log(Saqure)
+// const Saqure = number.map(num => num *num);
+// console.log(Saqure)
 
-const SaquredNumber = number.map(function (num){
-    return num * num;
-});
-console.log(SaquredNumber)
+// const SaquredNumber = number.map(function (num){
+//     return num * num;
+// });
+// console.log(SaquredNumber)
+
+
+//filter
+
+// const age = [12,25,28,23,20,22,10,9,12]
+
+// const result = age.filter(num => num%2===0);
+// console.log(result)
+
+// const ageResult = age.filter(num => num >18)
+
+// // function checkAdult(age) {
+// //     return age >= 18;
+// //   }
+// console.log(ageResult)
