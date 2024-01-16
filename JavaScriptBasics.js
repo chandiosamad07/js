@@ -143,14 +143,29 @@ multiple Line comment */
 //     console.log("Hositing with funcation")
 
 
-function outer(){
-    let outerVariable  = "This is outer variable";
+//closure
+// function outer(){
+//     let outerVariable  = "This is outer variable";
 
-    function Iner(){
-        console.log(outerVariable);
-    }
-    return Iner
+//     function Iner(){
+//         console.log(outerVariable);
+//     }
+//     return Iner
+// }
+
+// const clousreExample = outer();
+// clousreExample();
+
+//Iterators
+
+let sum =0;
+
+const number = [2,3,4,5,6,7,8];
+
+number.forEach(myfunction)
+
+function myfunction (item){
+   sum= sum + item
 }
 
-const clousreExample = outer();
-clousreExample();
+console.log(sum)
