@@ -131,14 +131,26 @@ multiple Line comment */
 
 //Hoisting with Variables:
 
-console.log(x)
-var x = 10;
-console.log(x)
+// console.log(x)
+// var x = 10;
+// console.log(x)
 
-//Hoisting with Funcation:
+// //Hoisting with Funcation:
 
-hello();
+// hello();
 
-function hello(){
-    console.log("Hositing with funcation")
+// function hello(){
+//     console.log("Hositing with funcation")
+
+
+function outer(){
+    let outerVariable  = "This is outer variable";
+
+    function Iner(){
+        console.log(outerVariable);
+    }
+    return Iner
 }
+
+const clousreExample = outer();
+clousreExample();
