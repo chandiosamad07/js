@@ -88,8 +88,16 @@ multiple Line comment */
 
 //for of
 
-const array = [1,2,3,4,5]
+// const array = [1,2,3,4,5]
 
-for(const value of array){
-    console.log(value);
+// for(const value of array){
+//     console.log(value);
+// }
+
+//for In
+
+const obj = {a:1 ,b:2, c:3};
+
+for(const value in obj){
+    console.log(value , obj[value]);
 }
