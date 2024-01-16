@@ -119,12 +119,26 @@ multiple Line comment */
 
 //Arrow funcation
 
-let myfun = (a,b) => a*b;
+// let myfun = (a,b) => a*b;
 
-console.log(myfun(5,2))
+// console.log(myfun(5,2))
 
-hello = () =>{
-    return "hello world"
+// hello = () =>{
+//     return "hello world"
+// }
+
+// console.log(hello())
+
+//Hoisting with Variables:
+
+console.log(x)
+var x = 10;
+console.log(x)
+
+//Hoisting with Funcation:
+
+hello();
+
+function hello(){
+    console.log("Hositing with funcation")
 }
-
-console.log(hello())
