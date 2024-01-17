@@ -86,8 +86,17 @@
 // console.log(text.startsWith("Hello"));
 // console.log(text.endsWith("Coding"));
 
-let firstName = "Abdul"
-let lastName = "Samad"
+// let firstName = "Abdul"
+// let lastName = "Samad"
 
-let text = `Welcom ${firstName} ${lastName} Chandio`
-console.log(text)
+// let text = `Welcom ${firstName} ${lastName} Chandio`
+// console.log(text)
+
+//Enhanced Object Literals
+
+var name = "Samad"
+var cast = "Chandio"
+var age = 24
+
+var insan = {name,cast,age}
+console.log(insan)
