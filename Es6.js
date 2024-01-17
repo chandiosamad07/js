@@ -94,9 +94,17 @@
 
 //Enhanced Object Literals
 
-var name = "Samad"
-var cast = "Chandio"
-var age = 24
+// var name = "Samad"
+// var cast = "Chandio"
+// var age = 24
 
-var insan = {name,cast,age}
-console.log(insan)
+// var insan = {name,cast,age}
+// console.log(insan)
+
+const vehicles = ['mustang', 'f-150', 'expedition'];
+
+const [car, truck, suv] = vehicles;
+console.log(car);
+console.log(truck);
+console.log(suv);
+console.log(vehicles);
