@@ -66,13 +66,22 @@
 
 //Rest Argument
 
-function sum (...args){
-    let sum = 0;
-    for(arg of args){
-        sum += arg;
-    }
-    return sum;
-}
+// function sum (...args){
+//     let sum = 0;
+//     for(arg of args){
+//         sum += arg;
+//     }
+//     return sum;
+// }
 
-console.log(sum(1,2,1,5,9,72))
-console.log(sum(1,2,9,72))
+// console.log(sum(1,2,1,5,9,72))
+// console.log(sum(1,2,9,72))
+
+//String includes()
+//String.startsWith()
+//String.endsWith()
+
+let text = "Hello world , Welcome to the samad's Coding"
+console.log(text.includes("Welcome"));
+console.log(text.startsWith("Hello"));
+console.log(text.endsWith("Coding"));
