@@ -81,7 +81,13 @@
 //String.startsWith()
 //String.endsWith()
 
-let text = "Hello world , Welcome to the samad's Coding"
-console.log(text.includes("Welcome"));
-console.log(text.startsWith("Hello"));
-console.log(text.endsWith("Coding"));
+// let text = "Hello world , Welcome to the samad's Coding"
+// console.log(text.includes("Welcome"));
+// console.log(text.startsWith("Hello"));
+// console.log(text.endsWith("Coding"));
+
+let firstName = "Abdul"
+let lastName = "Samad"
+
+let text = `Welcom ${firstName} ${lastName} Chandio`
+console.log(text)
