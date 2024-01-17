@@ -41,9 +41,18 @@
 // }
 // console.log(text);
 
-let language = "JavaScript"
-let text = ""
-for(x of language){
-    text += x + " "
-}
-console.log(x);
+// let language = "JavaScript"
+// let text = ""
+// for(x of language){
+//     text += x + " "
+// }
+// console.log(x);
+
+//Map
+
+const fruits = new Map([
+    ["apples", 500],
+["bananas", 300],
+["oranges", 200]
+])
+console.log(fruits);
