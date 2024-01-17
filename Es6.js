@@ -101,10 +101,34 @@
 // var insan = {name,cast,age}
 // console.log(insan)
 
-const vehicles = ['mustang', 'f-150', 'expedition'];
+// const vehicles = ['mustang', 'f-150', 'expedition'];
 
-const [car, truck, suv] = vehicles;
-console.log(car);
-console.log(truck);
-console.log(suv);
-console.log(vehicles);
+// const [car, truck, suv] = vehicles;
+// console.log(car);
+// console.log(truck);
+// console.log(suv);
+// console.log(vehicles);
+
+// const person = {name:'Samad', age:30,city:'New York'};
+// const {name , age, city} = person;
+// console.log(name)
+// console.log(age)
+// console.log(city)
+// console.log(person)
+
+// const number = [1,2,3,4,5]
+// const [,,,five]=number
+// console.log(five)
+
+//swapping a values using destructure
+
+// let a = 5;
+// let b = 2;
+// [a, b] = [b, a];
+// console.log(a);
+// console.log(b);
+
+const number = [1,2,3,4,5,6,7,8,9]
+const [first,...rest] = number;
+console.log(first)
+console.log(rest)
