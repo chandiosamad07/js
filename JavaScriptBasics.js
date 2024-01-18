@@ -212,7 +212,19 @@ const number  = [1,2,4,5,6,7,8,9]
 
 // console.log(sum)
 
-const result = number.map(num => num* num)
-console.log(result);
+// const result = number.map(num => num* num)
+// console.log(result);
 
 
+// Your array of objects
+const people = [
+    { name: 'John', age: 25, address: '123 Main St' },
+    { name: 'Jane', age: 30, address: '456 Oak St' },
+    // Add more objects as needed
+  ];
+  
+  // Extract just the ages using map
+  const ages = people.filter(person => person.age > 25).map(person => person.age);
+  
+  console.log(ages);
+  
