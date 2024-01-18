@@ -206,10 +206,13 @@ const number  = [1,2,4,5,6,7,8,9]
 // console.log(result)
 
 
-const sum =number.reduce(function(acc , cur){
-return acc + cur;
-},0)
+// const sum =number.reduce(function(acc , cur){
+// return acc + cur;
+// },0)
 
-console.log(sum)
+// console.log(sum)
+
+const result = number.map(num => num* num)
+console.log(result);
 
 
