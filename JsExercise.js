@@ -49,6 +49,14 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 
 let a = 5;
 let b = 2;
+
+console.log("Befor Sawping")
+console.log(a);
+console.log(b);
+
 [a, b] = [b, a];
+
+
+console.log("After Sawping")
 console.log(a);
 console.log(b);
