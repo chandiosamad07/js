@@ -70,6 +70,13 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 //for of and for in
 
 const num = [1,2,3,4,5,6,7,8,9]
-for(const value of num){
-    console.log(value)
+const person = {
+    a:1,b:2,c:3
+}
+// for(const value of num){
+//     console.log(value)
+// }
+
+for(const obj in person){
+    console.log(obj, person[obj])
 }
