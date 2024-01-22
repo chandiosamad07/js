@@ -60,3 +60,7 @@ console.log(b);
 console.log("After Sawping")
 console.log(a);
 console.log(b);
+
+let abc = [1,2,3,4,5,6]
+let result = abc.map(num => num*num)
+console.log(result);
