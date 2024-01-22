@@ -47,21 +47,29 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 
 //sawping two variable values
 
-let a = 5;
-let b = 2;
+// let a = 5;
+// let b = 2;
 
-console.log("Befor Sawping")
-console.log(a);
-console.log(b);
+// console.log("Befor Sawping")
+// console.log(a);
+// console.log(b);
 
-[a, b] = [b, a];
+// [a, b] = [b, a];
 
 
-console.log("After Sawping")
-console.log(a);
-console.log(b);
+// console.log("After Sawping")
+// console.log(a);
+// console.log(b);
 
-let abc = [1,2,3,4,5,6]
-// let result = abc.map(num => num*num)
-let result = abc.filter(num => num >3).map(num => num)
-console.log(result);
+// let abc = [1,2,3,4,5,6]
+// // let result = abc.map(num => num*num)
+// let result = abc.filter(num => num >3).map(num => num)
+// console.log(result);
+
+
+//for of and for in
+
+const num = [1,2,3,4,5,6,7,8,9]
+for(const value of num){
+    console.log(value)
+}
