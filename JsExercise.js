@@ -85,16 +85,27 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 
 //Spread Operator
 
-const array = [1,2,3,4,5]
+// const array = [1,2,3,4,5]
 
-const array2 = [6,7,8,9,10]
+// const array2 = [6,7,8,9,10]
 
-const array3 = [...array , ...array2]
+// const array3 = [...array , ...array2]
 
-for(value of array3){
-    console.log(value)
-}
-// console.log(array3)
+// for(value of array3){
+//     console.log(value)
+// }
+// // console.log(array3)
 
-const [one,two , ...rest] = array
-console.log(rest)
+// const [one,two , ...rest] = array
+// console.log(rest)
+
+// Rest oprator
+
+function sum(...args) {
+    let sum = 0;
+    for (let arg of args) sum += arg;
+    return sum;
+  }
+  
+  let x = sum(4, 9, 16, 25, 29, 100, 66, 77);
+console.log(x);  
