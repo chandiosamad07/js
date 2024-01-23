@@ -73,9 +73,10 @@ const num = [1,2,3,4,5,6,7,8,9]
 const person = {
     a:1,b:2,c:3
 }
-// for(const value of num){
-//     console.log(value)
-// }
+for(const value of num){
+    if(value%2==0)
+    console.log(value)
+}
 
 for(const obj in person){
     console.log(obj, person[obj])
