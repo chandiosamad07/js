@@ -69,16 +69,29 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 
 //for of and for in
 
-const num = [1,2,3,4,5,6,7,8,9]
-const person = {
-    a:1,b:2,c:3
-}
-for(const value of num){
-    if(value%2==0)
+// const num = [1,2,3,4,5,6,7,8,9]
+// const person = {
+//     a:1,b:2,c:3
+// }
+// for(const value of num){
+//     if(value%2==0)
+//     console.log(value)
+// }
+
+// for(const obj in person){
+//     if(person[obj]%2==0)
+//     console.log(obj, person[obj])
+// }
+
+//Spread Operator
+
+const array = [1,2,3,4,5]
+
+const array2 = [6,7,8,9,10]
+
+const array3 = [...array , ...array2]
+
+for(value of array3){
     console.log(value)
 }
-
-for(const obj in person){
-    if(person[obj]%2==0)
-    console.log(obj, person[obj])
-}
+// console.log(array3)
