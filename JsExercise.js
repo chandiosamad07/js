@@ -95,3 +95,6 @@ for(value of array3){
     console.log(value)
 }
 // console.log(array3)
+
+const [one,two , ...rest] = array
+console.log(rest)
