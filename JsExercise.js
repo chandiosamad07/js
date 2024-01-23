@@ -79,5 +79,6 @@ for(const value of num){
 }
 
 for(const obj in person){
+    if(person[obj]%2==0)
     console.log(obj, person[obj])
 }
