@@ -107,5 +107,5 @@ function sum(...args) {
     return sum;
   }
   
-  let x = sum(4, 9, 16, 25, 29, 100, 66, 77);
+  let x = sum(4, 9, 16, 25, 29, 100);
 console.log(x);  
