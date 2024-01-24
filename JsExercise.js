@@ -135,8 +135,9 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 // }
 // hello()
 
-let hello =() =>{
-  console.log("Hello Abdul This is Arrow Funcation")
-}
+// let hello =() =>{
+//   console.log("Hello Abdul This is Arrow Funcation")
+// }
 
-hello()
+let hello = () => "Hello samad"
+console.log(hello())
