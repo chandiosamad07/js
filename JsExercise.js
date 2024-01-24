@@ -130,7 +130,13 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 // let myfunction = (a,b) => a*b;
 // console.log(myfunction(5,4))
 
-let hello =  function(){
-  console.log("hello world")
+// let hello =  function(){
+//   console.log("hello world")
+// }
+// hello()
+
+let hello =() =>{
+  console.log("Hello Abdul This is Arrow Funcation")
 }
+
 hello()
