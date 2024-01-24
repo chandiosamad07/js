@@ -112,5 +112,10 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 //   let x = sum(4, 9, 16, 25, 29, 100);
 // console.log(x);  
 
-const d = new Date();
-console.log(d.getDay() + " " +d.getDate() +" " + d.getFullYear())
+// const d = new Date();
+// console.log(d.getDay() + " " +d.getDate() +" " + d.getFullYear())
+
+//hoisting
+x = 5
+console.log(x)
+var x;
