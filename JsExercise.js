@@ -127,5 +127,10 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 
 //Arrow Funcation
 
-let myfunction = (a,b) => a*b;
-console.log(myfunction(5,4))
+// let myfunction = (a,b) => a*b;
+// console.log(myfunction(5,4))
+
+let hello =  function(){
+  console.log("hello world")
+}
+hello()
