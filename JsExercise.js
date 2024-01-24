@@ -4,6 +4,8 @@ Today is : Tuesday.
 Current time is : 10 PM : 30 : 38
 */
 
+const { date } = require("yup");
+
 // var today = new Date();
 // var date = today.getDate();
 // var day = today.getDay();
@@ -101,11 +103,14 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 
 // Rest oprator
 
-function sum(...args) {
-    let sum = 0;
-    for (let arg of args) sum += arg;
-    return sum;
-  }
+// function sum(...args) {
+//     let sum = 0;
+//     for (let arg of args) sum += arg;
+//     return sum;
+//   }
   
-  let x = sum(4, 9, 16, 25, 29, 100);
-console.log(x);  
+//   let x = sum(4, 9, 16, 25, 29, 100);
+// console.log(x);  
+
+const d = new Date();
+console.log(d.getDay() + " " +d.getDate() +" " + d.getFullYear())
