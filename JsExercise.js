@@ -119,3 +119,7 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 x = 5
 console.log(x)
 var x;
+
+car = "Range Rover"
+var car;
+console.log(car)
