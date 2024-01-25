@@ -150,4 +150,4 @@ let hello = (...arg) =>{
   console.log(sum)
 }
 
-hello(1,2,3,4)
+hello(1,2,3,4,5,6,7)
