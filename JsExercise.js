@@ -159,5 +159,5 @@ const people = [
   { name: "Chandio", age: 21 }
 ];
 
-var result = people.filter(p => p.age > 20).map(p => p);
+var result = people.filter(p => p.age > 21).map(p => p);
 console.log(result);
