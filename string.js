@@ -7,7 +7,7 @@ console.log(str1[6]);
 console.log(str2[7]);
 
 
-let str3 = 'Hello, World'
+let str3 = 'Hello, Abdul Samad'
 
 console.log(str3.slice(7,12));
 console.log(str3.substring(7,12));
