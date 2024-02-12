@@ -11,7 +11,7 @@
 
 
 //its not a block level scop its global scop
-var count =0;
+var count =15;
 if(true){
     var count =1;
     console.log(count);
