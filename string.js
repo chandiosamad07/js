@@ -1,4 +1,4 @@
-let str1 = 'Abdul Samad';
+let str1 = 'Abdul Samad chandio';
 let str2 = `samad chandio`;
 
 console.log(typeof(str1), typeof(str2));
