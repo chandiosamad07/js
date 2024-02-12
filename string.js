@@ -1,5 +1,5 @@
 let str1 = 'Abdul Samad chandio';
-let str2 = `Abdul samad `;
+let str2 = `Abdul samad Chandio`;
 
 console.log(typeof(str1), typeof(str2));
 
