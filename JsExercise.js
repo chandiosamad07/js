@@ -115,17 +115,22 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 // const d = new Date();
 // console.log(d.getDay() + " " +d.getDate() +" " + d.getFullYear())
 
-//hoisting
-// x = 5
-// console.log(x)
-// var x;
-
-// car = "Range Rover"
-// var car;
-// console.log(car)
 
 
 
+//Arrow Funcation
+
+// let myfunction = (a,b) => a*b;
+// console.log(myfunction(5,4))
+
+// let hello =  function(){
+//   console.log("hello world")
+// }
+// hello()
+
+// let hello =() =>{
+//   console.log("Hello Abdul This is Arrow Funcation")
+// }
 
 // let hello = () => "Hello samad"
 // console.log(hello())
