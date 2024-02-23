@@ -125,21 +125,20 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 // console.log(car)
 
 
-//Arrow Funcation
 
-// let myfunction = (a,b) => a*b;
-// console.log(myfunction(5,4))
 
-// let hello =  function(){
-//   console.log("hello world")
+// let hello = () => "Hello samad"
+// console.log(hello())
+
+// let hello = (...arg) =>{
+//   let sum = 0;
+//   for(let value of arg){
+//     sum = sum+value
+//   }
+//   console.log(sum)
 // }
-// hello()
 
-// let hello =() =>{
-//   console.log("Hello Abdul This is Arrow Funcation")
-// }
-
-
+// hello(1,2,3,4,5,6,7,8,9,0,-10,11)
 
 
 const people = [
