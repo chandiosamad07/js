@@ -101,21 +101,16 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 // const [one,two , ...rest] = array
 // console.log(rest)
 
-// Rest oprator
-
-// function sum(...args) {
-//     let sum = 0;
-//     for (let arg of args) sum += arg;
-//     return sum;
-//   }
-  
-//   let x = sum(4, 9, 16, 25, 29, 100);
-// console.log(x);  
-
-// const d = new Date();
-// console.log(d.getDay() + " " +d.getDate() +" " + d.getFullYear())
 
 
+//hoisting
+// x = 5
+// console.log(x)
+// var x;
+
+// car = "Range Rover"
+// var car;
+// console.log(car)
 
 
 //Arrow Funcation
