@@ -80,7 +80,23 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 //     console.log(value)
 // }
 
+// for(const obj in person){
+//     if(person[obj]%2==0)
+//     console.log(obj, person[obj])
+// }
 
+//Spread Operator
+
+// const array = [1,2,3,4,5]
+
+// const array2 = [6,7,8,9,10]
+
+// const array3 = [...array , ...array2]
+
+// for(value of array3){
+//     console.log(value)
+// }
+// // console.log(array3)
 
 // const [one,two , ...rest] = array
 // console.log(rest)
@@ -140,7 +156,7 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 const people = [
   { name: "Samad ", age: 20 },
   { name: "Abdul samad", age: 22 },
-  { name: "Chandio samad", age: 21 }
+  { name: "Chandio samad", age: 51 }
 ];
 
 var result = people.filter(p => p.age > 21).map(p => p);
