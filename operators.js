@@ -1,19 +1,7 @@
 // let x= 10;
 // let y=5;
 
-// let sum = x+y;
 
-// let differnce= x-y;
-
-// let  product = x * y;
-
-// let quotient = x / y;
-
-
-// let remainder = x % y;
-
-
-// let result = x ** y;
 
 
 // console.log("sum of X + y = " , sum);
