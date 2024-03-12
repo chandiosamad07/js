@@ -139,18 +139,7 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 //   console.log("Hello Abdul This is Arrow Funcation")
 // }
 
-// let hello = () => "Hello samad"
-// console.log(hello())
-
-// let hello = (...arg) =>{
-//   let sum = 0;
-//   for(let value of arg){
-//     sum = sum+value
-//   }
-//   console.log(sum)
-// }
-
-// hello(1,2,3,4,5,6,7,8,9,0,-10,11)
+)
 
 
 const people = [
