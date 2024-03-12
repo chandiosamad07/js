@@ -153,11 +153,3 @@ Write a JavaScript program to find the area of a triangle where three sides are 
 // hello(1,2,3,4,5,6,7,8,9,0,-10,11)
 
 
-const people = [
-  { name: "Samad ", age: 20 },
-  { name: "Abdul samad", age: 22 },
-  { name: "Chandio samad", age: 51 }
-];
-
-var result = people.filter(p => p.age > 21).map(p => p);
-console.log(result);
