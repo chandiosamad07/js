@@ -1,0 +1,825 @@
+import React, { useState, useEffect } from "react";
+
+const FrameComponent1 = ({ selectedOption, userId, selectedScope }) => {
+  // State variables to store selected values for each dropdown
+  const [fuelCategory, setFuelCategory] = useState([]);
+  const [fuelType, setFuelType] = useState("");
+  const [levelUnitMeasurement, setLevelUnitMeasurement] = useState("");
+  const [levelUnit, setLevelUnit] = useState("");
+  const [fuelName, setFuelName] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [co2eValue, setCO2eValue] = useState(0);
+  const [co2eofco2Value, setCO2eOfCO2Value] = useState(0);
+  const [co2eofch4Value, setCO2eOfCH4Value] = useState(0);
+  const [co2eofn2oValue, setCO2eOfN2OValue] = useState(0);
+  const [country, setCountry] = useState(0);
+  const [level5, setLevel5] = useState("");
+  useEffect(() => {
+    fetchActivites();
+    BusinessUnit();
+    countryFetch();
+    // fetchBusinessUnits();
+  }, [userId]);
+
+  const countryFetch = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/companies/${userId}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data`);
+      }
+      const jsonData = await response.json();
+      const countryName = jsonData[0].countries; // Assuming the response is an array with one object
+      setCountry(countryName);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  // Fetch continents from API
+  const fetchActivites = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/activitydata");
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const jsonData = await response.json();
+      console.log("samad data activity", jsonData);
+
+      // Unique Fuel Category For Dropdown
+      const uniqueFuels = [
+        ...new Set(jsonData.companiesdatas.map((item) => item.fuel_category)),
+      ];
+      setFuelCategory(uniqueFuels);
+      console.log("Unique Fuel Category:", uniqueFuels);
+
+      // Unique Fuel Types For Dropdown
+      const uniqueTypeFuels = [
+        ...new Set(jsonData.datas.map((item) => item.level2)),
+      ];
+      setFuelType(uniqueTypeFuels);
+      console.log("Unique Fuel Types:", uniqueTypeFuels);
+
+      // Unique Fuel Names For Dropdown
+      const uniqueFuelNames = [
+        ...new Set(jsonData.datas.map((item) => item.level3)),
+      ];
+      setFuelName(uniqueFuelNames);
+      console.log("Unique Fuel Names:", uniqueFuelNames);
+
+      // Unique levelUnitMeasurement
+
+      const uniqueLUM = [...new Set(jsonData.datas.map((item) => item.uom))];
+      setLevelUnitMeasurement(uniqueLUM);
+      console.log("Unique Fuel Names:", uniqueFuelNames);
+
+      // Unique quantity
+      const uniqueQuantity = [
+        ...new Set(jsonData.datas.map((item) => item.quantity)),
+      ];
+      setQuantity(uniqueQuantity);
+    } catch (error) {
+      console.error("Error fetching Fuel Category:", error);
+    }
+  };
+
+  const BusinessUnit = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/companies/${userId}`);
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const Data = await response.json();
+
+      // Unique Level Unit For Drop Down
+      const uniquelevelunits = [...new Set(Data.map((item) => item.unitname))];
+      setLevelUnit(uniquelevelunits);
+      console.log("unique data bs", uniquelevelunits);
+    } catch (error) {
+      console.error("Error fetching Fuel Category:", error);
+    }
+  };
+
+  // Function to handle adding data
+  // Function to handle adding data
+  const handleAdd = async () => {
+    // Print selected data in console
+    console.log("Scope:", selectedScope);
+    console.log("Fuel Category:", fuelCategory);
+    console.log("level1:", selectedOption);
+    console.log("Level Unit:", levelUnit);
+    console.log("level2:", fuelType);
+    console.log("level3:", fuelName);
+    console.log("Level Unit Measurement:", levelUnitMeasurement);
+    console.log("Quantity:", quantity);
+    console.log("User ID:", userId);
+    console.log("CO2e Value:", co2eValue);
+    console.log("CO2e of CO2 Value:", co2eofco2Value);
+    console.log("CO2e of CH4 Value:", co2eofch4Value);
+    console.log("CO2e of N2O Value:", co2eofn2oValue);
+    console.log("Level 5", level5);
+    try {
+      const response = await fetch("http://localhost:5000/activatedatasubmit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          scope: selectedScope,
+          fuel_category: fuelCategory,
+          level1: selectedOption,
+          unitname: levelUnit,
+          company_country: country,
+          level2: fuelType,
+          level3: fuelName,
+          uom: levelUnitMeasurement,
+          quantity: quantity,
+          userid: userId, // Corrected from id: userId
+          level4: "",
+          level5: level5,
+          co2e: co2eValue,
+          co2eofco2: co2eofco2Value,
+          co2eofch4: co2eofch4Value,
+          co2eofn2o: co2eofn2oValue,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add data");
+      }
+
+      const jsonData = await response.json();
+      console.log("Data added successfully:", jsonData);
+    } catch (error) {
+      console.error("Error adding data frontend code:", error);
+      // Handle the error, e.g., display an error message to the user
+    }
+  };
+
+  // Calculate values based on quantity
+  useEffect(() => {
+    const co2e = parseFloat(quantity) * 3033.38067;
+    const co2eofco2 = parseFloat(quantity) * 3029.26;
+    const co2eofch4 = parseFloat(quantity) * 2.52;
+    const co2eofn2o = parseFloat(quantity) * 1.60067;
+
+    setCO2eValue(co2e.toFixed(2));
+    setCO2eOfCO2Value(co2eofco2.toFixed(2));
+    setCO2eOfCH4Value(co2eofch4.toFixed(2));
+    setCO2eOfN2OValue(co2eofn2o.toFixed(2));
+  }, [quantity]);
+  return (
+    <>
+      <div className="flex-1 rounded-lg bg-white shadow-[0px_4px_60px_rgba(0,_0,_0,_0.02)] flex flex-col items-end justify-start py-[18px] pr-[18px] pl-6 box-border gap-[216px] min-w-[585px] max-w-full text-left text-5xl text-dark font-poppins mq450:gap-[216px] mq800:min-w-full mq1125:gap-[216px]">
+        <div className="w-[900px] h-[656px] relative rounded-lg bg-white shadow-[0px_4px_60px_rgba(0,_0,_0,_0.02)] hidden max-w-full" />
+        <div className="self-stretch flex flex-col items-start justify-start gap-[32px] max-w-full mq450:gap-[32px]">
+          <h1 className="m-0 h-9 relative text-inherit font-semibold font-inherit inline-block z-[1] mq450:text-lgi">
+            Insert activity data here
+          </h1>
+          <div className="self-stretch flex flex-row items-start justify-start gap-[30px] max-w-full text-base mq800:flex-wrap">
+            <div className="flex-1 flex flex-col items-start justify-start gap-[32px] min-w-[269px] max-w-full mq450:gap-[32px]">
+              {/* Fuel Category Dropdown */}
+              <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
+                <h3 className="m-0 relative text-inherit capitalize font-medium font-inherit z-[1]">
+                  Fuel Category
+                </h3>
+                <select
+                  className="w-full bg-not-white self-stretch h-10 rounded-lg overflow-hidden shrink-0 flex flex-row items-center justify-start pt-2.5 px-3 pb-[9px] box-border font-poppins text-sm text-gray-300 min-w-[248px] z-[1]"
+                  value={fuelCategory}
+                  onChange={(e) => setFuelCategory([e.target.value])} // Wrap the value in an array
+                >
+                  <option value="">Select Option</option>
+                  {/* Filter options based on selectedOption */}
+                  {selectedOption === "Fuels" &&
+                    fuelCategory // Ensure fuelCategory is an array
+                      .filter((option) =>
+                        ["Mobile combustion", "Stationary combustion"].includes(
+                          option
+                        )
+                      )
+                      .map((option, index) => (
+                        <option key={index} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                  {selectedOption === "Bioenergy" &&
+                    fuelCategory // Ensure fuelCategory is an array
+                      .filter((option) =>
+                        ["Mobile combustion", "Stationary combustion"].includes(
+                          option
+                        )
+                      )
+                      .map((option, index) => (
+                        <option key={index} value={option}>
+                          {option}
+                        </option>
+                      ))}
+
+                  {selectedOption === "Passenger vehicles" &&
+                    fuelCategory // Ensure fuelCategory is an array
+                      .filter((option) =>
+                        ["Mobile combustion"].includes(option)
+                      )
+                      .map((option, index) => (
+                        <option key={index} value={option}>
+                          {option}
+                        </option>
+                      ))}
+
+                  {selectedOption === "Refrigerant and other" && (
+                    <>
+                      {["Fugitive emissions"].map((option, index) => (
+                        <option key={index} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </>
+                  )}
+                </select>
+              </div>
+              {/* Fuel Type Dropdown */}
+              <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
+                <h3 className="m-0 relative text-inherit capitalize font-medium font-inherit z-[1]">
+                  Fuel Type
+                </h3>
+                <select
+                  className="w-full bg-not-white self-stretch h-10 rounded-lg overflow-hidden shrink-0 flex flex-row items-center justify-start pt-2.5 px-3 pb-[9px] box-border font-poppins text-sm text-gray-300 min-w-[248px] z-[1]"
+                  value={fuelType} // Ensure fuelType holds the correct selected value
+                  onChange={(e) => setFuelType(e.target.value)}
+                >
+                  <option value="">Select Option</option>
+                  {selectedOption === "Fuels" && ( // Check if selectedOption is "Fuels"
+                    <optgroup label="">
+                      {["Gaseous fuels", "Liquid fuels", "Solid fuels"].map(
+                        (option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        )
+                      )}
+                    </optgroup>
+                  )}
+                  {selectedOption === "Bioenergy" && ( // Check if selectedOption is "Fuels"
+                    <optgroup label="">
+                      {["Biofuel", "Biogas", "Biomass"].map((option, index) => (
+                        <option key={index} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </optgroup>
+                  )}
+
+                  {selectedOption === "Passenger vehicles" && ( // Check if selectedOption is "Fuels"
+                    <optgroup label="Please select vehicle by market segment or size">
+                      {[
+                        "Cars (by size)",
+                        "Cars (by Market segment)",
+                        "Motor bike",
+                      ].map((option, index) => (
+                        <option key={index} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </optgroup>
+                  )}
+
+                  {selectedOption === "Delivery vehicles" && ( // Check if selectedOption is "Fuels"
+                    <optgroup label="Please select delivery vehicle type">
+                      {[
+                        "Vans",
+                        "HGV (all diesel)",
+                        "HGVs refrigerated (all diesel)",
+                      ].map((option, index) => (
+                        <option key={index} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </optgroup>
+                  )}
+
+                  {selectedOption === "Refrigerant and other" && ( // Check if selectedOption is "Fuels"
+                    <optgroup label="Please select refrigerant/gas type">
+                      {["Kyoto protocol products", "Blends"].map(
+                        (option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        )
+                      )}
+                    </optgroup>
+                  )}
+                </select>
+              </div>
+              {/* Passenger vehicles dynamic */}
+
+              {selectedOption === "Passenger vehicles" &&
+                (fuelName === "Mini" ||
+                  fuelName === "Suppermini" ||
+                  fuelName === "Lower medium") && (
+                  <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
+                    <h3 className="m-0 relative text-inherit capitalize font-medium font-inherit z-[1]">
+                      Please select the vehicle fuel type
+                    </h3>
+                    <select
+                      className="w-full bg-not-white self-stretch h-10 rounded-lg overflow-hidden shrink-0 flex flex-row items-center justify-start pt-2.5 px-3 pb-[9px] box-border font-poppins text-sm text-gray-300 min-w-[248px] z-[1]"
+                      value={level5}
+                      onChange={(e) => setLevel5([e.target.value])}
+                    >
+                      <option value="">Select Option</option>
+                      {[
+                        "Diesel",
+                        "Petrol",
+                        "Unknown",
+                        "Plug-in Hybrid Electric Vehicle",
+                      ].map((option, index) => (
+                        <option key={index} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+
+              {/* Please select delivery vehicle fuel / laden percentage*/}
+              {selectedOption === "Delivery vehicles" &&
+                (fuelName === "Rigid (&gt;3.5 - 7.5 tonnes)" ||
+                  fuelName === "Rigid (&gt;7.5 - 17 tonnes)" ||
+                  fuelName === "Rigid (&gt;17 tonnes)" ||
+                  fuelName === "All rigids" ||
+                  fuelName === "Articulated (&gt;3.5 - 33t)" ||
+                  fuelName === "Articulated (&gt;33t)" ||
+                  fuelName === "All artics" ||
+                  fuelName === "All HVGs") && (
+                  <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
+                    <h3 className="m-0 relative text-inherit capitalize font-medium font-inherit z-[1]">
+                      Please select delivery vehicle fuel / laden percentage
+                    </h3>
+                    <select
+                      className="w-full bg-not-white self-stretch h-10 rounded-lg overflow-hidden shrink-0 flex flex-row items-center justify-start pt-2.5 px-3 pb-[9px] box-border font-poppins text-sm text-gray-300 min-w-[248px] z-[1]"
+                      onChange={(e) => setLevel5([e.target.value])}
+                    >
+                      <option value="">Select Option</option>
+                      {["0% Laden", "50% Laden", "100% Laden"].map(
+                        (option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        )
+                      )}
+                    </select>
+                  </div>
+                )}
+
+              {/* Vans dynamic */}
+              {selectedOption === "Delivery vehicles" &&
+                (fuelName === "Class I (up to 1.305 tonnes)" ||
+                  fuelName === "Class III (1.74 to 3.5 tonnes)" ||
+                  fuelName === "Class II (1.305 to 1.74 tonnes)" ||
+                  fuelName === "Average (up to 3.5 tonnes)") && (
+                  <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
+                    <h3 className="m-0 relative text-inherit capitalize font-medium font-inherit z-[1]">
+                      Please select delivery vehicle fuel / laden percentage
+                    </h3>
+                    <select
+                      className="w-full bg-not-white self-stretch h-10 rounded-lg overflow-hidden shrink-0 flex flex-row items-center justify-start pt-2.5 px-3 pb-[9px] box-border font-poppins text-sm text-gray-300 min-w-[248px] z-[1]"
+                      value={level5}
+                      onChange={(e) => setLevel5([e.target.value])}
+                    >
+                      <option value="">Select Option</option>
+                      {["Diesel", "Petrol"].map((option, index) => (
+                        <option key={index} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+
+              {/* Level Unit of Measurement Dropdown */}
+              <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
+                <h3 className="m-0 relative text-inherit capitalize font-medium font-inherit z-[1]">
+                  Level unit of measurement
+                </h3>
+                <select
+                  className="w-full bg-not-white self-stretch h-10 rounded-lg overflow-hidden shrink-0 flex flex-row items-center justify-start pt-2.5 px-3 pb-[9px] box-border font-poppins text-sm text-gray-300 min-w-[248px] z-[1]"
+                  value={levelUnitMeasurement}
+                  onChange={(e) => setLevelUnitMeasurement(e.target.value)}
+                >
+                  <option value="">Select Option</option>
+                  {selectedOption === "Bioenergy" &&
+                    (fuelName === "Bioethanol" ||
+                    "Biodiesel ME" ||
+                    "Biomethane (compressed)"
+                      ? ["liters", "GJ", "KG"].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : null)}
+                  {selectedOption === "Passenger vehicles" &&
+                    (fuelName === "Small car" || "Large car" || "Medium car"
+                      ? ["Km", "miles"].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : ["Km", "miles"].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        )))}
+
+                  {selectedOption === "Delivery vehicles" &&
+                    (fuelName === "Class I (up to 1.305 tonnes)" ||
+                    "Class I (1.305 to 1.74 tonnes)" ||
+                    "Class I (1.74 to 3.5 tonnes)"
+                      ? ["Miles", "KG"].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : null)}
+                  {selectedOption === "Refrigerant and other"
+                    ? ["KG"].map((option, index) => (
+                        <option key={index} value={option}>
+                          {option}
+                        </option>
+                      ))
+                    : null}
+                </select>
+              </div>
+            </div>
+            <div className="flex-1 flex flex-col items-start justify-start gap-[32px] min-w-[269px] max-w-full mq450:gap-[32px]">
+              {/* Level Unit Dropdown */}
+              <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
+                <h3 className="m-0 relative text-inherit capitalize font-medium font-inherit z-[1]">
+                  Level Unit
+                </h3>
+                <select
+                  className="w-full bg-not-white self-stretch h-10 rounded-lg overflow-hidden shrink-0 flex flex-row items-center justify-start pt-2.5 px-3 pb-[9px] box-border font-poppins text-sm text-gray-300 min-w-[248px] z-[1]"
+                  value={levelUnit}
+                  onChange={(e) => setLevelUnit(e.target.value)}
+                >
+                  <option value="">Select option</option>
+                  {Array.isArray(levelUnit) ? (
+                    levelUnit.map((fueltype, index) => (
+                      <option key={index} value={fueltype}>
+                        {fueltype}
+                      </option>
+                    ))
+                  ) : (
+                    <option value={levelUnit}>{levelUnit}</option>
+                  )}
+                </select>
+              </div>
+              {/* Fuel Name Dropdown */}
+              <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
+                <h3 className="m-0 relative text-inherit capitalize font-medium font-inherit z-[1]">
+                  Fuel Name
+                </h3>
+                <select
+                  className="w-full bg-not-white self-stretch h-10 rounded-lg overflow-hidden shrink-0 flex flex-row items-center justify-start pt-2.5 px-3 pb-[9px] box-border font-poppins text-sm text-gray-300 min-w-[248px] z-[1]"
+                  value={fuelName} // Ensure fuelType holds the correct selected value
+                  onChange={(e) => setFuelName(e.target.value)}
+                >
+                  <option value="">Select Option</option>
+                  {selectedOption === "Fuels" &&
+                    (fuelType === "Solid fuels"
+                      ? [
+                          "Coal (industrial)",
+                          "Coal (electricity generation)",
+                          "Coal (domestic)",
+                          "Coking coal",
+                          "Petroleum coke",
+                          "Coal (electricity generation - home produced coal only)",
+                        ].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : null)}
+
+                  {selectedOption === "Fuels" &&
+                    (fuelType === "Liquid fuels"
+                      ? [
+                          "Aviation turbine fuel",
+                          "Aviation spirit",
+                          "Burning oil",
+                          "Diesel (average biofuel blend)",
+                          "Diesel (100% mineral diesel)",
+                          "fuel oil",
+                          "Gas oil",
+                          "Lubricants",
+                          "Naphtha",
+                          "Petrol (average biofuel blend)",
+                          "Petrol (100% mineral petrol)",
+                          "Processed fuel oils - residual oil",
+                          "Processed fuel oils - distillate oil",
+                          "Refinery miscellaneous",
+                          "Waste oils",
+                          "Marine gas oil",
+                          "Marine fuel oil",
+                        ].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : null)}
+
+                  {selectedOption === "Fuels" &&
+                    (fuelType === "Gaseous fuels"
+                      ? [
+                          "CNG",
+                          "Butane",
+                          "LNG",
+                          "LPG",
+                          "Natural gas",
+                          "Natural gas (100% mineral blend)",
+                          "Other petroleum gas",
+                          "Propane",
+                        ].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : null)}
+                  {selectedOption === "Bioenergy" &&
+                    (fuelType === "Biofuel"
+                      ? [
+                          "Bioethanol",
+                          "Biodiesel ME",
+                          "Biomethane (compressed)",
+                          "Biodiesel ME (from used cooking oil)",
+                          "Biodiesel ME (from tallow)",
+                          "Biodiesel HVO",
+                          "Biopropane",
+                          "Development diesel",
+                          "Development petrol",
+                          "Off road biodiesel",
+                          "Biomethane (Liquified)",
+                          " Methanol  (bio)",
+                          "Avtur (renewable)",
+                        ].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : null)}
+
+                  {selectedOption === "Bioenergy" &&
+                    (fuelType === "Biomass"
+                      ? [
+                          "Wood logs",
+                          "Wood Chips",
+                          "Wood pellets",
+                          "Grass/straw",
+                        ].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : null)}
+                  {selectedOption === "Bioenergy" &&
+                    (fuelType === "Biogas"
+                      ? ["Biogas", "Landfill gas"].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : null)}
+
+                  {selectedOption === "Passenger vehicles" &&
+                    (fuelType === "Cars (by Market segment)"
+                      ? [
+                          "Mini",
+                          "Suppermini",
+                          "Lower medium",
+                          "Upper medium",
+                          "Luxury",
+                          "Sports",
+                          "Executive",
+                          "Dual purpose 4x4",
+                          "MVP",
+                        ].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : null)}
+                  {selectedOption === "Passenger vehicles" &&
+                    (fuelType === "Cars (by size)"
+                      ? ["Small car", "Medium car", "Large car"].map(
+                          (option, index) => (
+                            <option key={index} value={option}>
+                              {option}
+                            </option>
+                          )
+                        )
+                      : null)}
+                  {selectedOption === "Passenger vehicles" &&
+                    (fuelType === "Motor bike"
+                      ? ["Small car", "Medium car", "Large car"].map(
+                          (option, index) => (
+                            <option key={index} value={option}>
+                              {option}
+                            </option>
+                          )
+                        )
+                      : null)}
+
+                  {selectedOption === "Delivery vehicles" &&
+                    (fuelType === "Vans"
+                      ? [
+                          "Class I (up to 1.305 tonnes)",
+                          "Class II (1.305 to 1.74 tonnes)",
+                          "Class III (1.74 to 3.5 tonnes)",
+                          "Average (up to 3.5 tonnes)",
+                        ].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : null)}
+                  {selectedOption === "Delivery vehicles" &&
+                    (fuelType === "HGV (all diesel)" ||
+                    fuelType === "HGVs refrigerated (all diesel)"
+                      ? [
+                          "Rigid (&gt;3.5 - 7.5 tonnes)",
+                          "Rigid (&gt;7.5 - 17 tonnes)",
+                          "Rigid (&gt;17 tonnes)",
+                          "All rigids",
+                          "Articulated (&gt;3.5 - 33t)",
+                          "Articulated (&gt;33t)",
+                          "All artics",
+                          "All HVGs",
+                        ].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : null)}
+                  {selectedOption === "Refrigerant and other" &&
+                    (fuelType === "Kyoto protocol products"
+                      ? [
+                          "Carbon dioxide",
+                          "Methane",
+                          "Nitrous oxide",
+                          "HFC-23",
+                          "HFC-32",
+                          "HFC-41",
+                          "HFC-125",
+                          "HFC-134",
+                          "HFC-134a",
+                          "HFC-143",
+                          "HFC-143a",
+                          "HFC-152a",
+                          "HFC-227ea",
+                          "HFC-236fa",
+                          "HFC-245fa",
+                          "HFC-43-IOmee",
+                          "Perfluoromethane (PFC-14)",
+                          "Perfluoromethane (PFC-116)",
+                          "Perfluoropropane (PFC-218)",
+                          "Perfluorocyclobutane (PFC-318)",
+                          "Perfluorobutane (PFC-3-1-1-0)",
+                          "Perfluoropentane (PFC-4-1-12)",
+                          "Perfurohexane (PFC-5-1-14)",
+                          "PFC-9-1-18",
+                          "Perfluorocyclopropane",
+                          "Sulphur hexafluroide (SF6)",
+                          "HFC-152",
+                          "HFC-161",
+                          "HFC-236cb",
+                          "HFC-236ea",
+                          "HFC-245ca",
+                          "HFC-365mfc",
+                          "Nitogen trifluoride",
+                        ].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : null)}
+
+                  {selectedOption === "Refrigerant and other" &&
+                    (fuelType === "Blends"
+                      ? [
+                          "R401A",
+                          "R401B",
+                          "R401C",
+                          "R402A",
+                          "R402B",
+                          "R403A",
+                          "R403B",
+                          "R404A",
+                          "R405A",
+                          "R407A",
+                          "R407B",
+                          "R407C",
+                          "R407D",
+                          "R407E",
+                          "R407F",
+                          "R408A",
+                          "R410A",
+                          "R410B",
+                          "R411A",
+                          "R411B",
+                          "R412A",
+                          "R413A",
+                          "R415A",
+                          "R415B",
+                          "R416A",
+                          "R417A",
+                          "R417B",
+                          "R418A",
+                          "R419A",
+                          "R419B",
+                          "R420A",
+                          "R421A",
+                          "R421B",
+                          "R422A",
+                          "R422C",
+                          "R422D",
+                          "R422E",
+                          "R423A",
+                          "R424A",
+                          "R425A",
+                          "R426A",
+                          "R427A",
+                          "R428A",
+                          "R429A",
+                          "R430A",
+                          "R431A",
+                          "R434A",
+                          "R435A",
+                          "R437A",
+                          "R438A",
+                          "R439A",
+                          "R440A",
+                          "R442A",
+                          "R444A",
+                          "R445A",
+                          "R500",
+                          "R503",
+                          "R504",
+                          "R507A",
+                          "R508A",
+                          "R508B",
+                          "R509A",
+                          "R511A",
+                        ].map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))
+                      : null)}
+                </select>
+              </div>
+
+              {/* Quantity Dropdown */}
+              <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
+                <h3 className="m-0 relative text-inherit capitalize font-medium font-inherit z-[1]">
+                  Quantity
+                </h3>
+                <input
+                  type="number"
+                  className="w-full bg-not-white self-stretch h-10 rounded-lg overflow-hidden shrink-0 flex flex-row items-center justify-start pt-2.5 px-3 pb-[9px] box-border font-poppins text-sm text-gray-300 min-w-[248px] z-[1]"
+                  value={quantity}
+                  min="0"
+                  onChange={(e) => setQuantity(e.target.value)}
+                  placeholder="Enter Quantity"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Buttons */}
+        <div className="w-[416px] flex flex-row items-start justify-start gap-[8px] max-w-full mq450:flex-wrap">
+          {/* Clear All Button */}
+          <button
+            className="cursor-pointer p-2.5 bg-not-white flex-1 rounded-lg flex flex-row items-center justify-center box-border min-w-[133px] whitespace-nowrap z-[1] hover:bg-gainsboro"
+            onClick={handleAdd}
+          >
+            <div className="h-11 w-[204px] relative rounded-lg bg-not-white hidden" />
+            <div className="h-6 relative text-base capitalize font-medium font-poppins text-dark text-center inline-block z-[2]">
+              Clear All
+            </div>
+          </button>
+          {/* Add Button */}
+          <button
+            className="cursor-pointer py-2.5 pr-5 pl-[21px] bg-brand-color-01 flex-[0.8859] rounded-lg flex flex-row items-center justify-center box-border min-w-[133px] z-[1] hover:bg-mediumseagreen"
+            onClick={handleAdd}
+          >
+            <div className="h-11 w-[204px] relative rounded-lg bg-brand-color-01 hidden" />
+            <div className="h-6 relative text-base capitalize font-medium font-poppins text-white text-center inline-block z-[2]">
+              Add
+            </div>
+          </button>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default FrameComponent1;
