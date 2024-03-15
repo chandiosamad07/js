@@ -25,3 +25,6 @@
 // const check  = age >= 21 ? "Samad" : "Abdul";
 // console.log(check);
 
+const name = 'Abdul';
+const check = name =="Abdul" ? "Abdul" : "samad";
+console.log(check);
