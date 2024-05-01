@@ -80,10 +80,6 @@
 //String.startsWith()
 //String.endsWith()
 
-// let text = "Hello world , Welcome to the samad's Coding"
-// console.log(text.includes("Welcome"));
-// console.log(text.startsWith("Hello"));
-// console.log(text.endsWith("Coding"));
 
 // let firstName = "Abdul"
 // let lastName = "Samad"
@@ -102,7 +98,11 @@
 
 // const vehicles = ['mustang', 'f-150', 'expedition'];
 
-
+// const [car, truck, suv] = vehicles;
+// console.log(car);
+// console.log(truck);
+// console.log(suv);
+// console.log(vehicles);
 
 // const person = {name:'Samad', age:30,city:'New York'};
 // const {name , age, city} = person;
