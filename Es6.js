@@ -108,12 +108,6 @@
 // console.log(suv);
 // console.log(vehicles);
 
-// const person = {name:'Samad', age:30,city:'New York'};
-// const {name , age, city} = person;
-// console.log(name)
-// console.log(age)
-// console.log(city)
-// console.log(person)
 
 // const number = [1,2,3,4,5]
 // const [,,,five]=number
