@@ -102,12 +102,14 @@
 
 // const vehicles = ['mustang', 'f-150', 'expedition'];
 
-// const [car, truck, suv] = vehicles;
-// console.log(car);
-// console.log(truck);
-// console.log(suv);
-// console.log(vehicles);
 
+
+// const person = {name:'Samad', age:30,city:'New York'};
+// const {name , age, city} = person;
+// console.log(name)
+// console.log(age)
+// console.log(city)
+// console.log(person)
 
 // const number = [1,2,3,4,5]
 // const [,,,five]=number
