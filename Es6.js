@@ -73,7 +73,6 @@
 //     }
 //     return sum;
 // }
-
 // console.log(sum(1,2,1,5,9,72))
 // console.log(sum(1,2,9,72))
 

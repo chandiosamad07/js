@@ -4,7 +4,7 @@ Today is : Tuesday.
 Current time is : 10 PM : 30 : 38
 */
 
-const { date } = require("yup");
+// const { date } = require("yup");
 
 // var today = new Date();
 // var date = today.getDate();
@@ -159,5 +159,5 @@ const people = [
   { name: "Chandio samad", age: 51 }
 ];
 
-var result = people.filter(p => p.age > 21).map(p => p);
+var result = people.filter(people => people.age > 21).map(people => people);
 console.log(result);
