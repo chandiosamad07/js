@@ -133,7 +133,7 @@ console.log(b);
 // console.log(a);
 // console.log(b);
 
-// const number = [1,2,3,4,5,6,7,8,9]
-// const [first,...rest] = number;
-// console.log(first)
-// console.log(rest)
+const number = [1,2,3,4,5,6,7,8,9]
+const [first,...rest] = number;
+console.log(first)
+console.log(rest)
