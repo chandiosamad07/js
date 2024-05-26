@@ -121,6 +121,12 @@
 
 //swapping a values using destructure
 
+// let a = 55;
+// let b = 41;
+// [a, b] = [b, a];
+// console.log(a);
+// console.log(b);
+
 let a = 55;
 let b = 41;
 [a, b] = [b, a];
