@@ -121,17 +121,17 @@
 
 //swapping a values using destructure
 
-// let a = 55;
-// let b = 41;
-// [a, b] = [b, a];
-// console.log(a);
-// console.log(b);
-
 let a = 55;
 let b = 41;
 [a, b] = [b, a];
 console.log(a);
 console.log(b);
+
+// let a = 55;
+// let b = 41;
+// [a, b] = [b, a];
+// console.log(a);
+// console.log(b);
 
 // const number = [1,2,3,4,5,6,7,8,9]
 // const [first,...rest] = number;
