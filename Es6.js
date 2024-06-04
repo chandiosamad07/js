@@ -108,11 +108,11 @@
 // console.log(suv);
 // console.log(vehicles);
 
-const person = {name:'Samad', age:30,city:'New York'};
-const {name , age, city} = person;
-console.log(name)
-console.log(age)
-console.log(city)
+// const person = {name:'Samad', age:30,city:'New York'};
+// const {name , age, city} = person;
+// console.log(name)
+// console.log(age)
+// console.log(city)
 // console.log(person)
 
 // const number = [1,2,3,4,5]
@@ -127,13 +127,7 @@ let b = 41;
 console.log(a);
 console.log(b);
 
-// let a = 55;
-// let b = 41;
-// [a, b] = [b, a];
-// console.log(a);
-// console.log(b);
-
-const number = [1,2,3,4,5,6,7,8,9]
-const [first,...rest] = number;
-console.log(first)
-console.log(rest)
+// const number = [1,2,3,4,5,6,7,8,9]
+// const [first,...rest] = number;
+// console.log(first)
+// console.log(rest)

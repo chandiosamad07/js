@@ -217,11 +217,11 @@ const number  = [1,2,4,5,6,7,8,9]
 
 
 // Your array of objects
-const people = [
-    { name: 'John', age: 25, address: '123 Main St' },
-    { name: 'Jane', age: 30, address: '456 Oak St' },
-    // Add more objects as needed
-  ];
+// const people = [
+//     { name: 'John', age: 25, address: '123 Main St' },
+//     { name: 'Jane', age: 30, address: '456 Oak St' },
+//     // Add more objects as needed
+//   ];
   
   // Extract just the ages using map
   const ages = people.filter(person => person.age > 25).map(person => person.age);
