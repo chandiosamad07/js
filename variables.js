@@ -10,11 +10,4 @@
 // console.log(PI);
 
 
-//its not a block level scop its global scop
-var count =15;
-if(true){
-    var count =1;
-    console.log(count);
-	console.log(count);
-}
-console.log(count);
+
