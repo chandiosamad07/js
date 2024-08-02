@@ -24,11 +24,20 @@
 // console.log(fruits.toString())
 
 
-const number = [1,2,3,4,5,6,7,8,9,10]
+// const number = [1,2,3,4,5,6,7,8,9,10]
 
-const num = number.map((number)=>number*number)
-console.log(number.map((number)=>number))
-console.log(num.toString())
-console.log(number.map((number)=>number).filter((number)=> number>5))
-console.log(number.reduce((ac,cr)=>ac+cr ,0))
+// const num = number.map((number)=>number*number)
+// console.log(number.map((number)=>number))
+// console.log(num.toString())
+// console.log(number.map((number)=>number).filter((number)=> number>5))
+// console.log(number.reduce((ac,cr)=>ac+cr ,0))
 
+
+const q1 = ["Jan", "Feb", "Mar"];
+const q2 = ["Apr", "May", "Jun"];
+const q3 = ["Jul", "Aug", "Sep"];
+const q4 = ["Oct", "Nov", "May"];
+
+const year = [...q1, ...q2, ...q3, ...q4];
+
+console.log(year.toString());
