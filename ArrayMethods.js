@@ -14,7 +14,12 @@ console.log(array.toString());
 array[0]="samad";
 console.log(array.toString());
 
-const Toyota = ["Grande","Revo","land cruiser","fortuner"]
+const Toyota = ["Grande","Revo","land cruiser","fortuner"];
 const honda = ["Civic","Vezel","BRV","HRV","City"]
 const car = Toyota.concat(honda)
 console.log(car.toString())
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort();
+
+console.log(fruits.toString())
