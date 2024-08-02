@@ -7,3 +7,5 @@ console.log(array.pop());
 console.log(array.toString());
 array.push("Chary")
 console.log(array.toString());
+array.shift()
+console.log(array.toString());
