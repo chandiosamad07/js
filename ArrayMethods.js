@@ -30,4 +30,5 @@ const num = number.map((number)=>number*number)
 console.log(number.map((number)=>number))
 console.log(num.toString())
 console.log(number.map((number)=>number).filter((number)=> number>5))
+console.log(number.reduce((ac,cr)=>ac+cr ,0))
 
