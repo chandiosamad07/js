@@ -9,3 +9,7 @@ array.push("Chary")
 console.log(array.toString());
 array.shift()
 console.log(array.toString());
+array.unshift("Lemon");
+console.log(array.toString());
+array[0]="samad";
+console.log(array.toString());
