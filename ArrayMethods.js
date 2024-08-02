@@ -29,3 +29,5 @@ const number = [1,2,3,4,5,6,7,8,9,10]
 const num = number.map((number)=>number*number)
 console.log(number.map((number)=>number))
 console.log(num.toString())
+console.log(number.map((number)=>number).filter((number)=> number>5))
+
