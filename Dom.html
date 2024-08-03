@@ -4,9 +4,14 @@
     <title>Document</title>
 </head>
 <body>
+
+    <h1 id="intro">Finding an element by Id</h1>
+    <p id="find"></p>
     <p id="demo"></p>
 
-
-    <script>document.getElementById("demo").innerHTML="Hello world"</script>
+    <script>document.getElementById("demo").innerHTML="Hello world";
+        const element = document.getElementById("intro");
+        document.getElementById("find").innerHTML="The text from the intro paragraph is: " + element.innerHTML;
+    </script>
 </body>
 </html>
