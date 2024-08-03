@@ -6,12 +6,16 @@
 <body>
 
     <h1 id="intro">Finding an element by Id</h1>
+    <p>hello this is p tag</p>
     <p id="find"></p>
     <p id="demo"></p>
-
+    <p id="tag"></p>
     <script>document.getElementById("demo").innerHTML="Hello world";
         const element = document.getElementById("intro");
         document.getElementById("find").innerHTML="The text from the intro paragraph is: " + element.innerHTML;
+
+        const value = document.getElementsByTagName("p");
+        document.getElementById("tag").innerHTML = 'The text in first paragraph (index 0) is: ' + value[0].innerHTML;
     </script>
 </body>
 </html>
