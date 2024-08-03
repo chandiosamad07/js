@@ -10,12 +10,16 @@
     <p id="find"></p>
     <p id="demo"></p>
     <p id="tag"></p>
+    <p class="demo">Class demo</p>
+    <p class="demo1"></p>
     <script>document.getElementById("demo").innerHTML="Hello world";
         const element = document.getElementById("intro");
         document.getElementById("find").innerHTML="The text from the intro paragraph is: " + element.innerHTML;
 
         const value = document.getElementsByTagName("p");
         document.getElementById("tag").innerHTML = 'The text in first paragraph (index 0) is: ' + value[0].innerHTML;
+        const CD = document.getElementsByClassName("demo");
+        document.getElementsByClassName("demo1")[0].innerHTML = CD[0].innerHTML;
     </script>
 </body>
 </html>
